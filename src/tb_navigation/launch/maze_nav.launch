@@ -1,0 +1,7 @@
+<launch>
+  <node pkg="tb_navigation" type="qr_detector.py" name="qr_detector">
+  </node>
+
+  <node pkg="tb_navigation" type="send_waypoint.py" name="send_waypoint">
+  </node>
+</launch>
