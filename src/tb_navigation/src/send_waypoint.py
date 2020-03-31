@@ -3,6 +3,7 @@
 import rospy
 import csv
 import actionlib
+import os
 from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
 from std_msgs.msg import String
 
@@ -44,14 +45,15 @@ if __name__ == '__main__':
         with open('/home/mishi9/turtlekin_ws/src/tb_navigation/src/poses.csv') as csv_file:
             csv_reader = csv.reader(csv_file, delimiter=',')
             rospy.init_node('send_waypoint_py')
+
             for row in csv_reader:
-                    print(row)
-                    result = send_wp(float(row[1]), float(row[2]), float(row[3]), float(row[4]))
-                    if row[0] == "10":
-                        continue
-                    pub.publish("scan")
-                    while not received == row[0]:
-                        pass
-                    rospy.loginfo("scan successful: " + received)
+                print(row)
+                result = send_wp(float(row[1]), float(row[2]), float(row[3]), float(row[4]))
+                if row[0] == "10":
+                    continue
+                pub.publish("scan")
+                while not received == row[0]:
+                    pass
+                rospy.loginfo("scan successful: " + received)
     except rospy.ROSInterruptException:
         rospy.loginfo("Navigation test finished.")
