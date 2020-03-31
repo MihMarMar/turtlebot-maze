@@ -33,4 +33,4 @@ Note: you may need to change the path to the map file depending on your reposito
 
 The robot will now start to navigate around the maze and scan QR codes. 
 
-
+Demo video is available in [YouTube](https://www.youtube.com/watch?v=nKiNXyjyfzs)
